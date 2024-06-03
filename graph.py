@@ -1,5 +1,6 @@
 import matplotlib.pyplot as plt
 
+# function to get the real time value from generate-time.txt and sort-time.txt
 def extract_real_times(filename):
     times = []
     with open(filename, 'r') as file:
@@ -11,10 +12,10 @@ def extract_real_times(filename):
                 times.append(total_time)
     return times
 
-# Load real times from text files
 generate_times = extract_real_times('generate-time.txt')
 sort_times = extract_real_times('sort-time.txt')
 
+# num of records to visualize graph (this is the x-value)
 scales = [1000, 10000, 100000]
 
 plt.figure(figsize=(10, 5))
@@ -24,8 +25,8 @@ plt.plot(scales, sort_times, marker='o', label='Sorting Time', linestyle='-', co
 plt.xlabel('Number of Records')
 plt.ylabel('Time in Seconds')
 plt.title('Time Taken for Data Generation and Sorting')
-plt.xscale('log')  # Logarithmic scale for the x-axis
-plt.yscale('log')  # Optional: Logarithmic scale for the y-axis to show exponential growth
+plt.xscale('log')
+plt.yscale('log')
 plt.grid(True)
 plt.legend()
 plt.show()
