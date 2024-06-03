@@ -9,7 +9,7 @@ fi
 input_file=$1
 output_file="${input_file%.txt}-sorted.txt"
 
-# Sort the file numerically by the first column and measure the time taken
-time sort -n -k1,1 "$input_file" > "$output_file"
+# sort file by first column only
+sort -n -k1,1 "$input_file" > "$output_file"
 
 echo "Sorted file created: $output_file"
